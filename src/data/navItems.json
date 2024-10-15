@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Home",
+      "url": "/",
+      "type": "text"
+    },
+    {
+      "name": "About Us",
+      "url": "/about-us",
+      "type": "text"
+    },
+    {
+      "name": "Our Solutions",
+      "url": "/solutions",
+      "type": "text"
+    },
+    {
+      "name": "Our Projects",
+      "url": "/projects",
+      "type": "text"
+    },
+    {
+      "name": "Careers",
+      "url": "/careers",
+      "type": "text"
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact",
+      "type": "button"
+    }
+  ]
+  
