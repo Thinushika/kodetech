@@ -6,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import Image from "next/image";
 import navItems from "../../data/navItems.json";
 import { usePathname } from "next/navigation";
+import CustomCursor from "../common/elements/CustomCursor";
 
 const Navbar = ({ logo }: { logo: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,6 +88,7 @@ const Navbar = ({ logo }: { logo: string }) => {
           ))}
         </nav>
       </div>
+      <CustomCursor />
     </header>
   );
 };
