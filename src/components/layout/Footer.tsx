@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <footer className="footer-container container flex justify-between items-center max-w-screen-2xl mx-auto py-4 px-4 sm:px-6 lg:px-14">
-      {/* <Link href="/" passHref>
+      <Link href="/" passHref>
         {logo && (
           <Image
             src={logo}
@@ -51,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({
             {link.name}
           </Link>
         </li>
-      ))} */}
+      ))}
     </footer>
   );
 };
