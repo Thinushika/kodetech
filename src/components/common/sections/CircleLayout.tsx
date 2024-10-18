@@ -64,7 +64,7 @@ const CircleLayout = () => {
 
       <div className="absolute w-[300px] h-[300px] rounded-full bg-[#fff4f4] z-10"></div>
 
-      <div className="absolute w-[500px] h-[500px] rounded-full border border-gray-300"></div>
+      <div className="absolute w-[500px] h-[500px] rotating-circle rounded-full border border-gray-300"></div>
 
       {icons.map((icon, index) => {
         const angle = (index / icons.length) * 2 * Math.PI;

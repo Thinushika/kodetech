@@ -119,3 +119,23 @@ button {
     opacity: 0;
   }
 }
+
+
+/* rotating circle */
+.rotating-circle {
+  width: 500px;
+  height: 500px;
+  border: 2px dashed #ccc;
+  border-style: dashed 20px 5px;
+  border-radius: 50%;
+  animation: rotate-slowly 50s linear infinite;
+}
+
+@keyframes rotate-slowly {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
