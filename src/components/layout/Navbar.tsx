@@ -35,7 +35,7 @@ const Navbar = ({ logo }: { logo: string }) => {
           {navItems.map((item) => (
             <Link key={item.name} href={item.url} passHref>
               <span
-                className={`font-poppins 
+                className={`font-openSans 
         ${
           item.type === "button"
             ? "bg-[#F90305] text-white py-2 px-4 rounded-md font-bold text-[16px] border-[#F90305] border-[1px]"

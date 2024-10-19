@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({ text, href, withArrow = false }) => {
   return (
     <a
       href={href}
-      className="inline-flex w-max items-center px-6 py-[10px] bg-[#EB131B] text-white text-[14px] md:text-[16px] font-poppins font-semibold rounded-md hover:bg-[#EB131B] transition-all duration-300 ease-in-out transform"
+      className="inline-flex w-max items-center px-6 py-[10px] bg-[#EB131B] text-white text-[14px] md:text-[16px] rounded-md hover:bg-[#EB131B] transition-all duration-300 ease-in-out transform z-50"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

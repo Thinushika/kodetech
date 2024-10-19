@@ -125,7 +125,7 @@ const CircleLayout = () => {
                     height={20}
                     className="w-[20px] sm:w-[30px] lg:w-[30px] xl:w-[40px] 2xl:w-[50px] h-auto"
                   />
-                  <p className="text-[8px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[15px] text-[#000] font-poppins font-[400] leading-tight">
+                  <p className="text-[8px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[15px] text-[#000] font-[400] leading-tight">
                     {icon.title} <br /> {icon.subtitle}
                   </p>
                 </div>

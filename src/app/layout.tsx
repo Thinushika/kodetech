@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
-// import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "src/components/layout/Navbar";
 import { getGeneralInfo } from "src/services/fetchGeneralInfo";
 import { GeneralInfoType } from "src/types";
 import sanityClient, { urlFor } from "sanity";
 import Footer from "src/components/layout/Footer";
+import { Open_Sans } from 'next/font/google'
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
+// const roboto = Roboto({
+//   weight: ['100', '300', '400', '500', '700'],
+//   style: ['normal', 'italic'],
+//   subsets: ['latin'],
+//   display: 'swap',
+// })
+
+const openSans = Open_Sans({
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Kode Tech",
@@ -44,6 +47,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <main className={openSans.className}>
         <Navbar logo={darkLogoUrl} />
         {/* <div className="bg-animated-circuit w-full h-full min-h-screen"> */}
         {children}
@@ -55,6 +59,7 @@ export default async function RootLayout({
           contactNumbers={contactNumbers}
           socialLinks={formattedSocialLinks}
         />
+        </main>
       </body>
     </html>
   );
