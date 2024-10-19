@@ -1,0 +1,43 @@
+[
+    {
+      "name": "Web Development",
+      "url": "/",
+      "type": "text"
+    },
+    {
+      "name": "Mobile App Development",
+      "url": "/about-us",
+      "type": "text"
+    },
+    {
+      "name": "AR & VR Solutions",
+      "url": "/solutions",
+      "type": "text"
+    },
+    {
+      "name": "Game Development",
+      "url": "/projects",
+      "type": "text"
+    },
+    {
+      "name": "Metaverse Solutions",
+      "url": "/careers",
+      "type": "text"
+    },
+    {
+      "name": "Block Chain",
+      "url": "/contact",
+      "type": "button"
+    },
+    {
+      "name": "Software Development",
+      "url": "/contact",
+      "type": "button"
+    },
+    {
+      "name": "AI Soliutions",
+      "url": "/contact",
+      "type": "button"
+    }
+  ]
+  
