@@ -7,6 +7,7 @@ import OurServices from "../../data/ourServices.json";
 import Spacer from "../common/elements/Spacer";
 import { urlFor } from "sanity";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
+import Paragraph from "../common/elements/Paragraph";
 
 type FooterProps = {
   logo: string;
@@ -114,8 +115,19 @@ const Footer: React.FC<FooterProps> = ({
             <p className="mb-[10px]">Your Email</p>
             <div className="flex flex-row w-100">
               <form action="" method="post" className="">
-                <input type="email" name="email" id="email" placeholder="Enter Your Email" className="bg-transparent border rounded-[5px] px-[15px] py-[10px] me-[10px]" />
-                <button type="submit" className="bg-[#EB131B] px-[20px] py-[10px] rounded-[5px]">Subscribe</button>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter Your Email"
+                  className="bg-transparent border rounded-[5px] px-[15px] py-[10px] me-[10px]"
+                />
+                <button
+                  type="submit"
+                  className="bg-[#EB131B] px-[20px] py-[10px] rounded-[5px]"
+                >
+                  Subscribe
+                </button>
               </form>
             </div>
           </div>
@@ -144,6 +156,18 @@ const Footer: React.FC<FooterProps> = ({
             ))}
           </ul>
         </div>
+      </div>
+      <div className="flex flex-col max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-14">
+        <div className="w-100 bg-[#EB131B] h-[1px]"></div>
+        <Spacer height="h-[15px] md:h-[30px]" />
+        <div className="flex flex-col lg:flex-row justify-between">
+          <Paragraph color="#fff" text="Copyright 2023 Kodetech (Pvt) Ltd." />
+          <div className="flex flex-col lg:flex-row justify-end">
+            <Link href={"/"} className="me-[30px]">Terms & Conditions</Link>
+            <Link href={"/"}>Privacy Policy</Link>
+          </div>
+        </div>
+        <Spacer height="h-[15px] md:h-[30px]" />
       </div>
     </footer>
   );
