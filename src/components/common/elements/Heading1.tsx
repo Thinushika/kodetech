@@ -2,10 +2,11 @@ import React from 'react';
 
 type HeadingProps = {
   text: string;
+  color: string;
   companyName?: string; 
 };
 
-const Heading1: React.FC<HeadingProps> = ({ text, companyName }) => {
+const Heading1: React.FC<HeadingProps> = ({ text, companyName, color }) => {
   const renderTextWithHighlights = (text: string, companyName?: string) => {
     if (!companyName) {
       return text.split('\n').map((line, index) => (
@@ -28,7 +29,7 @@ const Heading1: React.FC<HeadingProps> = ({ text, companyName }) => {
     ));
   };
 
-  return <h3 className='text-black text-[30px] md:text-[50px] font-semibold leading-tight p-0 m-0'>{renderTextWithHighlights(text, companyName)}</h3>;
+  return <h3 className={`text-[${color}] text-[30px] md:text-[50px] font-semibold leading-tight p-0 m-0`}>{renderTextWithHighlights(text, companyName)}</h3>;
 };
 
 export default Heading1;

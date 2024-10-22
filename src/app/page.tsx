@@ -29,6 +29,7 @@ const HomePage = async () => {
             <Spacer height="h-[15px] md:h-[25px] xl:h-[35px]" />
             <Heading1
               text={`Partner with Kode Tech Solutions \nfor digital success.`}
+              color="#000"
               companyName="Kode Tech"
             />
             <Spacer height="h-[15px] md:h-[15px]" />
@@ -55,7 +56,7 @@ const HomePage = async () => {
       {/* section 3 */}
       <div className="p-0 m-0 bg-[#fff]">
         <div className="flex flex-col text-center max-w-screen-2xl mx-auto px-[15px] py-[40px] xl:p-14">
-          <Heading1 text={`Our Services`} />
+          <Heading1 text={`Our Services`} color="#000" />
           <Spacer height="h-[15px] md:h-[15px]" />
           <Paragraph
             color="#000"

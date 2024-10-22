@@ -5,7 +5,7 @@ import { getGeneralInfo } from "src/services/fetchGeneralInfo";
 import { GeneralInfoType } from "src/types";
 import sanityClient, { urlFor } from "sanity";
 import Footer from "src/components/layout/Footer";
-import { Open_Sans } from 'next/font/google'
+import { Open_Sans } from "next/font/google";
 
 // const roboto = Roboto({
 //   weight: ['100', '300', '400', '500', '700'],
@@ -15,11 +15,11 @@ import { Open_Sans } from 'next/font/google'
 // })
 
 const openSans = Open_Sans({
-  weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Kode Tech",
@@ -48,17 +48,15 @@ export default async function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <main className={openSans.className}>
-        <Navbar logo={darkLogoUrl} />
-        {/* <div className="bg-animated-circuit w-full h-full min-h-screen"> */}
-        {children}
-        {/* </div> */}
-        <Footer
-          logo={lightLogoUrl}
-          address={address}
-          email={email}
-          contactNumbers={contactNumbers}
-          socialLinks={formattedSocialLinks}
-        />
+          <Navbar logo={darkLogoUrl} />
+          {children}
+          <Footer
+            logo={lightLogoUrl}
+            address={address}
+            email={email}
+            contactNumbers={contactNumbers}
+            socialLinks={formattedSocialLinks}
+          />
         </main>
       </body>
     </html>
