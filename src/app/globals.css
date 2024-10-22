@@ -131,3 +131,19 @@ button {
     transform: rotate(360deg);
   }
 }
+
+
+
+/* swiper styles */
+.swiper-pagination-bullet{
+  width: 20px !important;
+  height: 5px !important;
+  border-radius: 20px !important;
+  background-color: #fff !important;
+  opacity: 0.8 !important;
+}
+
+.swiper-pagination-bullet-active{
+  background-color: #EB131B !important;
+  width: 40px !important;
+}

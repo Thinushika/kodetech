@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button from "src/components/common/elements/Button";
 import Heading1 from "src/components/common/elements/Heading1";
 import Paragraph from "src/components/common/elements/Paragraph";
+import Slider from "src/components/common/elements/Slider";
 import Spacer from "src/components/common/elements/Spacer";
 import SubTitle from "src/components/common/elements/SubTitle";
 import CircleLayout from "src/components/common/sections/CircleLayout";
@@ -37,7 +38,7 @@ const HomePage = async () => {
               color="#4D5053"
               text="Kode Tech (Pvt) Ltd is a well-established and renowned software development company with a rich legacy spanning over 14 years. Our extensive expertise has earned us a strong foothold in 15 international markets, where we’ve successfully delivered over 1,500 projects. Our innovative and creative approach and cutting-edge technologies always help for a better experience."
             />
-            <Spacer height="h-[20spx] md:h-[25px] xl:h-[35px]" />
+            <Spacer height="h-[20px] md:h-[25px] xl:h-[35px]" />
             <Button text="Explore More" href="" withArrow={true} />
           </div>
 
@@ -65,6 +66,43 @@ const HomePage = async () => {
           <CircleLayout />
         </div>
       </div>
+      {/* section 4 */}
+      <section
+        className="bg-cover bg-center hidden md:flex items-end justify-center "
+        style={{
+          backgroundImage: `url('/img/dark-background.jpeg')`,
+        }}
+      >
+        <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px] pl-4 pr-0 md:pl-8  lg:pl-14 2xl:px-14 w-full h-full ">
+        <Heading1 text={`Services Solutions`} color="#fff" />
+          <Spacer height="h-[15px] md:h-[15px]" />
+          <Paragraph
+            color="#fff"
+            text="These feedbacks will confirm to you that we have led our clients to success."
+          />
+          <Spacer height="h-[15px] md:h-[30px]" />
+          <Slider />
+        </div>
+      </section>
+
+      {/* section 6 */}
+      <section
+        className="bg-cover bg-center hidden md:flex items-end justify-center "
+        style={{
+          backgroundImage: `url('/img/dark-background.jpeg')`,
+        }}
+      >
+        <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px] pl-4 pr-0 md:pl-8  lg:pl-14 2xl:px-14 w-full h-full ">
+        <Heading1 text={`Case Studies`} color="#fff" />
+          <Spacer height="h-[15px] md:h-[15px]" />
+          <Paragraph
+            color="#fff"
+            text="These feedbacks will confirm to you that we have led our clients to success."
+          />
+          <Spacer height="h-[15px] md:h-[30px]" />
+          <Slider />
+        </div>
+      </section>
     </>
   );
 };
