@@ -45,8 +45,8 @@ const Footer: React.FC<FooterProps> = ({
   // console.log("icons:", socialLinks);
   return (
     <footer className="footer-container bg-black">
-      <div className="container flex flex-col lg:flex-row justify-between items-start max-w-screen-2xl mx-auto py-14 px-4 sm:px-6 lg:px-14">
-        <div className="flex flex-col lg:w-[25%]">
+      <div className="container flex flex-wrap justify-between items-start max-w-screen-2xl mx-auto py-14 px-4 sm:px-6 lg:px-14">
+        <div className="flex flex-col w-full md:w-[50%] lg:w-[25%] mb-6 md:mb-0">
           <Link href="/" passHref>
             {logo && (
               <Image
@@ -54,11 +54,11 @@ const Footer: React.FC<FooterProps> = ({
                 alt="Logo Light"
                 width={198}
                 height={36}
-                className="w-auto h-6 lg:h-8"
+                className="w-auto h-10 md:h-8 lg:h-8"
               />
             )}
           </Link>
-          <Spacer height="h-[15px] md:h-[30px]" />
+          <Spacer height="h-[25px] md:h-[30px]" />
           {contactNumbers && (
             <div className="footer-contact-numbers">
               <ul>
@@ -77,50 +77,41 @@ const Footer: React.FC<FooterProps> = ({
             ))}
         </div>
 
-        <div className="flex flex-col lg:w-[20%]">
+        <div className="flex flex-col w-full md:w-[50%] lg:w-[20%] mb-6 md:mb-0">
           <h3 className="font-extrabold uppercase">QUICK LINKS</h3>
           <Spacer height="h-[15px] md:h-[30px]" />
           {QuickLinks.map((link, index) => (
-            <>
-              <Link key={index} href={link.url} className=" mb-[10px]">
-                {link.name}
-              </Link>
-            </>
+            <Link key={index} href={link.url} className="mb-[10px]">
+              {link.name}
+            </Link>
           ))}
         </div>
 
-        <div className="flex flex-col lg:w-[25%]">
+        <div className="flex flex-col w-full md:w-[50%] lg:w-[25%] mb-6 md:mb-0">
+          <Spacer height="h-[15px] md:h-[30px] lg:h-0" />
           <h3 className="font-extrabold uppercase">OUR SERVICES</h3>
           <Spacer height="h-[15px] md:h-[30px]" />
           {OurServices.map((link, index) => (
-            <>
-              <Link key={index} href={link.url} className=" mb-[10px]">
-                {link.name}
-              </Link>
-            </>
+            <Link key={index} href={link.url} className="mb-[10px]">
+              {link.name}
+            </Link>
           ))}
         </div>
 
-        <div className="flex flex-col lg:w-[30%]">
-          <h3 className="font-extrabold uppercase">CONTACT US </h3>
+        <div className="flex flex-col w-full md:w-[50%] lg:w-[30%]">
+        <Spacer height="h-[15px] md:h-[30px] lg:h-0" />
+          <h3 className="font-extrabold uppercase">CONTACT US</h3>
           <Spacer height="h-[15px] md:h-[30px]" />
-          {/* {email && (
-            <ul className="footer-email-list">
-              {email.map((emailItem, index) => (
-                <li key={index} className=" mb-[10px]">{emailItem}</li>
-              ))}
-            </ul>
-          )} */}
           <div className="flex flex-col">
             <p className="mb-[10px]">Your Email</p>
-            <div className="flex flex-row w-100">
+            <div className="flex flex-row w-full">
               <form action="" method="post" className="">
                 <input
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Enter Your Email"
-                  className="bg-transparent border rounded-[5px] px-[15px] py-[10px] me-[10px]"
+                  className="bg-transparent border rounded-[5px] px-[8px] md:px-[15px] py-[10px] me-[5px] md:me-[10px]"
                 />
                 <button
                   type="submit"
@@ -136,15 +127,6 @@ const Footer: React.FC<FooterProps> = ({
             {socialLinksFooter.map((link, index) => (
               <li key={index} className="px-2 w-max">
                 <Link href={link.link} passHref className="z-50">
-                  {/* {link.icon && (
-                    <Image
-                      src={urlFor(link.icon).url()}
-                      alt={link.name}
-                      width={15}
-                      height={15}
-                      className="h-[15px] w-auto"
-                    />
-                  )} */}
                   <div
                     className="flex justify-center items-center w-[40px] h-[40px] bg-[#ffffff67] p-[10px] z-50"
                     style={{ borderRadius: "100%" }}
@@ -157,13 +139,16 @@ const Footer: React.FC<FooterProps> = ({
           </ul>
         </div>
       </div>
+
       <div className="flex flex-col max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-14">
         <div className="w-100 bg-[#EB131B] h-[1px]"></div>
         <Spacer height="h-[15px] md:h-[30px]" />
-        <div className="flex flex-col lg:flex-row justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <Paragraph color="#fff" text="Copyright 2023 Kodetech (Pvt) Ltd." />
-          <div className="flex flex-col lg:flex-row justify-end">
-            <Link href={"/"} className="me-[30px]">Terms & Conditions</Link>
+          <div className="flex flex-col md:flex-row justify-end">
+            <Link href={"/"} className="me-[30px]">
+              Terms & Conditions
+            </Link>
             <Link href={"/"}>Privacy Policy</Link>
           </div>
         </div>

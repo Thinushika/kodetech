@@ -23,22 +23,22 @@ const HomePage = async () => {
       />
       {/* section 2 */}
       <div className="p-0 m-0 bg-[#C5C5C54D]">
-        <div className="flex flex-col-reverse lg:flex-row max-w-screen-2xl mx-auto px-[15px] py-[40px] xl:p-14 lg:gap-[50px]">
+        <div className="flex flex-col-reverse md:flex-row max-w-screen-2xl mx-auto px-[15px] py-[40px] xl:p-14 lg:gap-[50px]">
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
             <Spacer height="h-[20px] md:h-[0px]" />
             <SubTitle text={"WHO WE ARE"} />
-            <Spacer height="h-[15px] md:h-[25px] xl:h-[35px]" />
+            <Spacer height="h-[15px] md:h-[15px] lg:h-[25px] xl:h-[35px]" />
             <Heading1
               text={`Partner with Kode Tech Solutions \nfor digital success.`}
               color="#000"
               companyName="Kode Tech"
             />
-            <Spacer height="h-[15px] md:h-[15px]" />
+            <Spacer height="h-[15px] md:h-[15px] lg:h-[25px]" />
             <Paragraph
               color="#4D5053"
               text="Kode Tech (Pvt) Ltd is a well-established and renowned software development company with a rich legacy spanning over 14 years. Our extensive expertise has earned us a strong foothold in 15 international markets, where we’ve successfully delivered over 1,500 projects. Our innovative and creative approach and cutting-edge technologies always help for a better experience."
             />
-            <Spacer height="h-[20px] md:h-[25px] xl:h-[35px]" />
+            <Spacer height="h-[15px] md:h-[15px] lg:h-[25px] xl:h-[35px]" />
             <Button text="Explore More" href="" withArrow={true} />
           </div>
 
@@ -68,12 +68,12 @@ const HomePage = async () => {
       </div>
       {/* section 4 */}
       <section
-        className="bg-cover bg-center hidden md:flex items-end justify-center "
+        className="bg-cover bg-center md:flex items-end justify-center "
         style={{
           backgroundImage: `url('/img/dark-background.jpeg')`,
         }}
       >
-        <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px] pl-4 pr-0 md:pl-8  lg:pl-14 2xl:px-14 w-full h-full ">
+        <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px]  px-[10px] 2xl:px-14 w-full h-full ">
         <Heading1 text={`Services Solutions`} color="#fff" />
           <Spacer height="h-[15px] md:h-[15px]" />
           <Paragraph
@@ -87,12 +87,12 @@ const HomePage = async () => {
 
       {/* section 6 */}
       <section
-        className="bg-cover bg-center hidden md:flex items-end justify-center "
+        className="bg-cover bg-center md:flex items-end justify-center "
         style={{
           backgroundImage: `url('/img/dark-background.jpeg')`,
         }}
       >
-        <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px] pl-4 pr-0 md:pl-8  lg:pl-14 2xl:px-14 w-full h-full ">
+        <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px]  px-[10px] 2xl:px-14 w-full h-full ">
         <Heading1 text={`Case Studies`} color="#fff" />
           <Spacer height="h-[15px] md:h-[15px]" />
           <Paragraph

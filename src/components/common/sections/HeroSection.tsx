@@ -33,13 +33,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="text-white text-center max-w-screen-2xl mx-auto py-0 pl-4 pr-0 md:pl-8  lg:pl-14 2xl:px-14 w-full h-full ">
           <div className="flex flex-row items-end relative w-full h-full">
             <div className="flex flex-col items-start justify-center text-left md:w-[55%] h-full hero-section-min-height">
-              <h3 className="mb-[10px] text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] 2xl:text-[70px] font-normal leading-none">
+              <h3 className="mb-[10px] text-[30px] md:text-[34px] lg:text-[50px] xl:text-[60px] 2xl:text-[70px] font-normal leading-none">
                 {heading1}
               </h3>
-              <h3 className="mb-[10px] text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] 2xl:text-[70px] font-normal leading-none">
+              <h3 className="mb-[10px] text-[30px] md:text-[34px] lg:text-[50px] xl:text-[60px] 2xl:text-[70px] font-normal leading-none">
                 {heading2}
               </h3>
-              <h1 className="text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] 2xl:text-[70px] text-[#EB131B] font-bold leading-none mb-10">
+              <h1 className="text-[30px] md:text-[34px] lg:text-[50px] xl:text-[60px] 2xl:text-[70px] text-[#EB131B] font-bold leading-none mb-10">
                 {heading3}
               </h1>
               <Button text={buttonLabel} href={buttonLink} withArrow={true} />
