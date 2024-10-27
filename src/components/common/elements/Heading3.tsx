@@ -6,7 +6,7 @@ type HeadingProps = {
 };
 
 const Heading3: React.FC<HeadingProps> = ({ text, color }) => {
-  return <h3 className={`text-[${color}] text-[18px] md:text-[18px] xl:text-[24px] 2xl:text-[30px] font-extrabold leading-tight p-0 m-0`}>{text}</h3>;
+  return <h3 className={`text-[${color}] text-[18px] md:text-[18px] xl:text-[22px] 2xl:text-[30px] font-extrabold leading-tight p-0 m-0`}>{text}</h3>;
 };
 
 export default Heading3;

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import sanity, { urlFor } from "sanity";
 import Button from "src/components/common/elements/Button";
 import ButtonSecondary from "src/components/common/elements/ButtonSecondary";
 import Heading1 from "src/components/common/elements/Heading1";
@@ -9,52 +10,18 @@ import Spacer from "src/components/common/elements/Spacer";
 import SubTitle from "src/components/common/elements/SubTitle";
 import CircleLayout from "src/components/common/sections/CircleLayout";
 import HeroSection from "src/components/common/sections/HeroSection";
-
-type Post = {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl: string;
-  url: string;
-};
-
-const posts: Post[] = [
-  {
-    id: 1,
-    title: "AI - Powered Chatbot",
-    description:
-      "Step into the future of communication with our AI-powered chatbot—an intelligent virtual assistant designed to enhance engagement, streamline interactions, and provide personalized assistance effortlessly. ",
-    imageUrl: "/img/post-1.png",
-    url: "/post/1",
-  },
-  {
-    id: 2,
-    title: "E-commerce / POS",
-    description:
-      "E-commerce/Point of Sale (POS) systems are integral for modern retail. ",
-    imageUrl: "/img/post-1.png",
-    url: "/post/2",
-  },
-  {
-    id: 3,
-    title: "Customer Relationship Management ",
-    description:
-      "Customer Relationship Management (CRM) is a strategic business tool empowering organizations to manage",
-    imageUrl: "/img/post-1.png",
-    url: "/post/3",
-  },
-  {
-    id: 4,
-    title: "Lorem Ipsum ",
-    description:
-      "Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum has been the simply dummy text.",
-    imageUrl: "/img/post-1.png",
-    url: "/post/4",
-  },
-];
+import { getProducts } from "src/services/fetchProducts";
+import { ProductsType } from "src/types";
 
 const HomePage = async () => {
   // const generalInfo: GeneralInfoType = await sanity.fetch(getGeneralInfo);
+  // const caseStudies: CaseStudiesType = await sanity.fetch(getCaseStudies);
+  const products: ProductsType = await sanity.fetch(getProducts);
+
+  // console.log("Case Studies : ",caseStudies)
+  console.log("Products : ", products);
+  
+
   return (
     <>
       <HeroSection
@@ -130,58 +97,71 @@ const HomePage = async () => {
         </div>
       </section>
       <div className="p-0 m-0 bg-[#fff]">
-        <div className="flex flex-col text-start max-w-screen-2xl mx-auto px-[15px] py-[40px] xl:p-14">
+        <div className="flex flex-col text-start max-w-screen-2xl mx-auto px-[15px] py-[40px] xl:py-14 xl:px-[120px]">
           <div className="container mx-auto px-0 py-0">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* First Column - First Post */}
-              <div className="first-post bg-white p-0 rounded-lg shadow-lg">
-                <Image
-                  src={posts[0].imageUrl}
-                  alt={posts[0].title}
-                  width={600}
-                  height={400}
-                  className="rounded-lg"
-                />
-                <div className="flex flex-col p-[20px]">
-                  <Heading3 color="#000" text={posts[0].title} />
-                  <Paragraph color="#4D5053" text={posts[0].description} />
-                  <Spacer height="h-[15px] md:h-[15px] xl:h-[30px]" />
-                  <ButtonSecondary
-                    text="Explore More"
-                    href={posts[0].url}
-                    withArrow={true}
-                  />
-                </div>
-              </div>
-
-              {/* Second Column - Posts 2, 3, and 4 */}
-              <div className="second-column space-y-6">
-                {posts.slice(1).map((post) => (
-                  <div
-                    key={post.id}
-                    className="post-item bg-white p-0 rounded-lg shadow-lg flex flex-row"
-                  >
-                    <Image
-                      src={post.imageUrl}
-                      alt={post.title}
-                      width={300}
-                      height={200}
-                      className="rounded-lg w-1/4 h-auto"
-                    />
-                    <div className="flex flex-col p-[20px]">
-                      <Heading3 color="#000" text={post.title} />
-                      <Paragraph color="#4D5053" text={post.description} />
-                      <Spacer height="h-[10px]" />
-                      <ButtonSecondary
-                        text="Explore More"
-                        href={post.url}
-                        withArrow={true}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  {/* First Column - Show main item if exists */}
+  {products.find(product => product.mainItem) && (
+    <div className="first-post bg-white p-0 rounded-lg shadow-lg">
+      {products
+        .filter(product => product.mainItem)
+        .map(mainProduct => (
+          <>
+           <Image
+              src={`${urlFor(mainProduct.mainImage.asset)}`}
+              alt={mainProduct.title}
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+            <div className="flex flex-col p-[20px]">
+              <Heading3 color="#000" text={mainProduct.title} />
+              <Paragraph color="#4D5053" text={mainProduct.feturedText} />
+              <Spacer height="h-[15px] md:h-[15px] xl:h-[30px]" />
+              <ButtonSecondary
+                text="Explore More"
+                href={`/${mainProduct.slug.current}`}
+                withArrow={true}
+              />
             </div>
+          </>
+        ))}
+    </div>
+  )}
+
+  {/* Second Column - Products without mainItem */}
+  <div className="second-column space-y-6">
+  {products
+      .filter(product => !product.mainItem)
+      .slice(0, 3)
+      .map((product) => (
+        <div
+          key={product.slug.current}
+          className="post-item bg-white p-0 rounded-lg shadow-lg flex flex-row"
+        >
+          <Image
+            src={`${urlFor(product.mainImage.asset)}`}
+            alt={product.title}
+            width={300}
+            height={200}
+            className="rounded-lg w-1/4 h-auto"
+          />
+          <div className="flex flex-col p-[20px]">
+            <Heading3 color="#000" text={product.title} />
+            <Paragraph color="#4D5053" text={product.feturedText} />
+            <Spacer height="h-[10px]" />
+            <ButtonSecondary
+              text="Explore More"
+              href={`/${product.slug.current}`}
+              withArrow={true}
+            />
+          </div>
+        </div>
+      ))}
+  </div>
+</div>
+
+
           </div>
         </div>
       </div>
