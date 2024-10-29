@@ -1,9 +1,13 @@
 export const getCaseStudies = `
-  *[_type == "knowledgeCenter"]{
-    title,
+  *[_type == "caseStudies"]{
+    caseName,
+    projectUrl,
+    clientLogo,
+    tabImage,
+    mainImage,
     feturedText,
     slug,
-    mainImage,
-    
+    tagline,
+    body
   }
 `;

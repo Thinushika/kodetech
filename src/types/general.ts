@@ -48,19 +48,19 @@ export interface GeneralInfoType {
   export type ProductsType = ProductType[];
 
   export interface CaseStudiesType {
-    title: string;
-    logoDark: {
+    caseName: string;
+    clientLogo: {
       _type: 'image';
       asset: {
         _ref: string; 
         _type: 'reference';
       };
     };
-    logoLight: SanityImageSource;
-    email: string[];
-    contactNumbers: string[];
-    address: string;
-    socialLinks: SocialLink[];
-    sectorCount: number;
-    countryCount: number;
+    tabImage: SanityImageSource;
+    mainImage: SanityImageSource;
+    projectUrl: string;
+    feturedText: string;
+    slug: string;
+    tagline: string;
+    body: string;
   }

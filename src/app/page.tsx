@@ -2,25 +2,32 @@ import Image from "next/image";
 import sanity, { urlFor } from "sanity";
 import Button from "src/components/common/elements/Button";
 import ButtonSecondary from "src/components/common/elements/ButtonSecondary";
+import CaseSlider from "src/components/common/elements/CaseSlider";
 import Heading1 from "src/components/common/elements/Heading1";
 import Heading3 from "src/components/common/elements/Heading3";
 import Paragraph from "src/components/common/elements/Paragraph";
+import ParagraphSecondaryStyle from "src/components/common/elements/ParagraphSecondaryStyle";
 import Slider from "src/components/common/elements/Slider";
 import Spacer from "src/components/common/elements/Spacer";
 import SubTitle from "src/components/common/elements/SubTitle";
 import CircleLayout from "src/components/common/sections/CircleLayout";
 import HeroSection from "src/components/common/sections/HeroSection";
+import { getCaseStudies } from "src/services/fetchCaseStudies";
 import { getProducts } from "src/services/fetchProducts";
-import { ProductsType } from "src/types";
+import { CaseStudiesType, ProductsType } from "src/types";
 
 const HomePage = async () => {
   // const generalInfo: GeneralInfoType = await sanity.fetch(getGeneralInfo);
-  // const caseStudies: CaseStudiesType = await sanity.fetch(getCaseStudies);
+  const caseStudies: CaseStudiesType[] = await sanity.fetch(getCaseStudies);
   const products: ProductsType = await sanity.fetch(getProducts);
 
   // console.log("Case Studies : ",caseStudies)
-  console.log("Products : ", products);
-  
+
+  const sliderData = caseStudies.map((study) => ({
+    img: urlFor(study.mainImage).url(),
+  }));
+  // console.log("Products : ", products);
+
 
   return (
     <>
@@ -99,67 +106,75 @@ const HomePage = async () => {
       <div className="p-0 m-0 bg-[#fff]">
         <div className="flex flex-col text-start max-w-screen-2xl mx-auto px-[15px] py-[40px] xl:py-14 xl:px-[120px]">
           <div className="container mx-auto px-0 py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-  {/* First Column - Show main item if exists */}
-  {products.find(product => product.mainItem) && (
-    <div className="first-post bg-white p-0 rounded-lg shadow-lg">
-      {products
-        .filter(product => product.mainItem)
-        .map(mainProduct => (
-          <>
-           <Image
-              src={`${urlFor(mainProduct.mainImage.asset)}`}
-              alt={mainProduct.title}
-              width={600}
-              height={400}
-              className="rounded-lg"
-            />
-            <div className="flex flex-col p-[20px]">
-              <Heading3 color="#000" text={mainProduct.title} />
-              <Paragraph color="#4D5053" text={mainProduct.feturedText} />
-              <Spacer height="h-[15px] md:h-[15px] xl:h-[30px]" />
-              <ButtonSecondary
-                text="Explore More"
-                href={`/${mainProduct.slug.current}`}
-                withArrow={true}
-              />
-            </div>
-          </>
-        ))}
-    </div>
-  )}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* First Column - Show main item if exists */}
+              {products.find(product => product.mainItem) && (
+                <div className="first-post bg-white p-0 rounded-lg shadow-lg">
+                  {products
+                    .filter(product => product.mainItem)
+                    .map(mainProduct => (
+                      <>
+                        <div className="flex flex-col md:flex-row xl:flex-col">
+                          <div className="flex w-full md:w-1/2 xl:w-full">
+                            <Image
+                              src={`${urlFor(mainProduct.mainImage.asset)}`}
+                              alt={mainProduct.title}
+                              width={600}
+                              height={400}
+                              layout="responsive"
+                              className="rounded-lg w-full "
+                            />
+                          </div>
+                          <div className="flex flex-col p-[20px] xl:px-[40px]">
+                            <Heading3 color="#000" text={mainProduct.title} />
+                            <ParagraphSecondaryStyle color="#4D5053" text={mainProduct.feturedText} />
+                            <Spacer height="h-[15px] md:h-[15px] xl:h-[30px]" />
+                            <ButtonSecondary
+                              text="Explore More"
+                              href={`/${mainProduct.slug.current}`}
+                              withArrow={true}
+                            />
+                          </div>
+                        </div>
+                      </>
+                    ))}
+                </div>
+              )}
 
-  {/* Second Column - Products without mainItem */}
-  <div className="second-column space-y-6">
-  {products
-      .filter(product => !product.mainItem)
-      .slice(0, 3)
-      .map((product) => (
-        <div
-          key={product.slug.current}
-          className="post-item bg-white p-0 rounded-lg shadow-lg flex flex-row"
-        >
-          <Image
-            src={`${urlFor(product.mainImage.asset)}`}
-            alt={product.title}
-            width={300}
-            height={200}
-            className="rounded-lg w-1/4 h-auto"
-          />
-          <div className="flex flex-col p-[20px]">
-            <Heading3 color="#000" text={product.title} />
-            <Paragraph color="#4D5053" text={product.feturedText} />
-            <Spacer height="h-[10px]" />
-            <ButtonSecondary
-              text="Explore More"
-              href={`/${product.slug.current}`}
-              withArrow={true}
-            />
-          </div>
-        </div>
-      ))}
-  </div>
-</div>
+              {/* Second Column - Products without mainItem */}
+              <div className="second-column space-y-6">
+                {products
+                  .filter(product => !product.mainItem)
+                  .slice(0, 3)
+                  .map((product) => (
+                    <div
+                      key={product.slug.current}
+                      className="post-item bg-white p-0 rounded-lg shadow-lg flex flex-col md:flex-row"
+                    >
+                      <div className="flex w-full md:w-1/2 xl:w-full">
+                        <Image
+                          src={`${urlFor(product.mainImage.asset)}`}
+                          alt={product.title}
+                          width={400}
+                          height={200}
+                          layout="responsive"
+                          className="rounded-lg w-full h-auto"
+                        />
+                      </div>
+                      <div className="flex flex-col p-[20px]">
+                        <Heading3 color="#000" text={product.title} />
+                        <ParagraphSecondaryStyle color="#4D5053" text={product.feturedText} />
+                        <Spacer height="h-[10px]" />
+                        <ButtonSecondary
+                          text="Explore More"
+                          href={`/${product.slug.current}`}
+                          withArrow={true}
+                        />
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
 
 
           </div>
@@ -181,8 +196,8 @@ const HomePage = async () => {
             text="These feedbacks will confirm to you that we have led our clients to success."
           />
           <Spacer height="h-[15px] md:h-[30px]" />
-          <Slider />
-        </div>
+          <CaseSlider sliderData={sliderData} />
+          </div>
       </section>
     </>
   );
