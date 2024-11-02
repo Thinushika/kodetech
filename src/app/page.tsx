@@ -138,7 +138,7 @@ const HomePage = async () => {
 
       {/* section 5 - products */}
       <div className="p-0 m-0 bg-[#fff]">
-        <div className="flex flex-col text-start max-w-screen-2xl mx-auto px-[15px] md:px-[25px] py-[40px] xl:py-14 xl:px-[100px]">
+        <div className="flex flex-col text-start max-w-screen-2xl mx-auto px-[15px] md:px-[25px] py-[40px] xl:py-[120px] xl:px-[100px]">
           <div className="container mx-auto px-0 py-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* First Column - Show main item if exists */}
@@ -269,6 +269,9 @@ const HomePage = async () => {
                     </div>
                   ))}
               </div>
+            </div>
+            <div className="flex w-full justify-center items-center pt-[30px] md:pt-[40px] xl:pt-[50px]">
+            <Button text="See All" href="" withArrow={true} />
             </div>
           </div>
         </div>
