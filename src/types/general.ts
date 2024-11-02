@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export interface SocialLink {
@@ -62,5 +63,44 @@ export interface GeneralInfoType {
     feturedText: string;
     slug: string;
     tagline: string;
+    body: string;
+  }
+
+
+  export interface TestimonialType {
+    [x: string]: any;
+    name: string;
+    mainImage: SanityImageSource;
+    company: string;
+    position: string;
+    rate: number;
+    comment: string;
+  }
+
+  export interface ClientLogoType {
+    [x: string]: any;
+    name: string;
+    mainImage: {
+      _type: 'image';
+      asset: {
+        _ref: string; 
+        _type: 'reference';
+      };
+    };
+  }
+
+
+  export interface KnoledgeCenterType {
+    [x: string]: any;
+    title: string;
+    slug: string;
+    mainImage: {
+      _type: 'image';
+      asset: {
+        _ref: string; 
+        _type: 'reference';
+      };
+    };
+    feturedText: string;
     body: string;
   }

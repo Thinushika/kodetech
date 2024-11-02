@@ -1,12 +1,8 @@
-export const getGeneralInfo = `*[_type == "general"][0]{
+export const getKnoledgeCenter = `*[_type == "knowledgeCenter"]{
     title,
-    logoDark,
-    logoLight,
-    email,
-    contactNumbers,
-    address,
-    socialLinks,
-    sectorCount,
-    countryCount
+    slug,
+    mainImage,
+    feturedText,
+    body,
   }`;
   

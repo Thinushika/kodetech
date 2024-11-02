@@ -147,3 +147,23 @@ button {
   background-color: #EB131B !important;
   width: 40px !important;
 }
+
+#clientLogoSlider .swiper-button-lock{
+  display: block !important;
+}
+#clientLogoSlider .swiper-button-prev,#clientLogoSlider  .swiper-button-next{
+  color: #EB131B !important;
+  opacity: 1 !important;
+  border: solid 1px #EB131B;
+  padding: 10px !important;
+  border-radius: 100% !important;
+  font-size: 20px !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+#clientLogoSlider .swiper-button-prev::after,#clientLogoSlider  .swiper-button-next::after{
+  font-size: 20px !important;
+}

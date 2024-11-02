@@ -1,12 +1,10 @@
-export const getGeneralInfo = `*[_type == "general"][0]{
-    title,
-    logoDark,
-    logoLight,
-    email,
-    contactNumbers,
-    address,
-    socialLinks,
-    sectorCount,
-    countryCount
+export const getTestimonials = `
+*[_type == "testimonials"]{
+    name,
+    company,
+    position,
+    rate,
+    comment,
+    mainImage
   }`;
   
