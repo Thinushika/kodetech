@@ -25,7 +25,7 @@ const CustomCursor = () => {
 
   return (
     <>
-      <div className="cursor-none">
+      <div className="cursor-none none lg:block">
         <div
           className="fixed top-[-16px] left-[-16px] w-[10px] h-[10px] bg-[#EB131B] rounded-full pointer-events-none z-50"
           style={{
