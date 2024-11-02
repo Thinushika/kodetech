@@ -20,13 +20,23 @@
       "type": "text"
     },
     {
+      "name": "Our Products",
+      "url": "/products",
+      "type": "text"
+    },
+    {
+      "name": "Case Studies",
+      "url": "/case-studies",
+      "type": "text"
+    },
+    {
       "name": "Careers",
       "url": "/careers",
       "type": "text"
     },
     {
       "name": "Contact Us",
-      "url": "/contact",
+      "url": "/contact-us",
       "type": "button"
     }
   ]

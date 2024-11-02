@@ -1,5 +1,8 @@
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Image from "next/image";
+import { Key } from "react";
 import sanity, { urlFor } from "sanity";
+import BlogCard from "src/components/common/elements/BlogCard";
 import Button from "src/components/common/elements/Button";
 import ButtonSecondary from "src/components/common/elements/ButtonSecondary";
 import CaseSlider from "src/components/common/elements/CaseSlider";
@@ -16,13 +19,13 @@ import CircleLayout from "src/components/common/sections/CircleLayout";
 import HeroSection from "src/components/common/sections/HeroSection";
 import { getCaseStudies } from "src/services/fetchCaseStudies";
 import { getClientLogos } from "src/services/fetchClientLogos";
-// import { getKnoledgeCenter } from "src/services/fetchKnowledgeCenter";
+import { getKnoledgeCenter } from "src/services/fetchKnowledgeCenter";
 import { getProducts } from "src/services/fetchProducts";
 import { getTestimonials } from "src/services/fetchTestimonials";
 import {
   CaseStudiesType,
   ClientLogoType,
-  // KnoledgeCenterType,
+  KnoledgeCenterType,
   ProductsType,
   TestimonialType,
 } from "src/types";
@@ -32,9 +35,9 @@ const HomePage = async () => {
   const products: ProductsType = await sanity.fetch(getProducts);
   const testimonials: TestimonialType = await sanity.fetch(getTestimonials);
   const clientLogos: ClientLogoType = await sanity.fetch(getClientLogos);
-  // const knoledgeCenter: KnoledgeCenterType = await sanity.fetch(
-  //   getKnoledgeCenter
-  // );
+  const knoledgeCenter: KnoledgeCenterType = await sanity.fetch(
+    getKnoledgeCenter
+  );
 
   const sliderData = caseStudies.map((study) => ({
     img: urlFor(study.mainImage).url(),
@@ -58,7 +61,7 @@ const HomePage = async () => {
   // console.log("Case Studies : ",caseStudies)
   // console.log("Client logos : ",clientLogoSliderData)
   // console.log("Testimonials : ",testimonialSliderData)
-  // console.log("knoledgeCenter : ", knoledgeCenter);
+  console.log("knoledgeCenter : ", knoledgeCenter);
 
   return (
     <>
@@ -209,6 +212,7 @@ const HomePage = async () => {
                               color="#4D5053"
                               text={mainProduct.feturedText}
                               lineClamp={true}
+                              lineClampNumber={2}
                             />
                             <Spacer height="h-[2px]" />
                             <ButtonSecondary
@@ -255,6 +259,7 @@ const HomePage = async () => {
                           color="#4D5053"
                           text={product.feturedText}
                           lineClamp={true}
+                          lineClampNumber={2}
                         />
                         <Spacer height="h-[2px]" />
                         <ButtonSecondary
@@ -341,6 +346,15 @@ const HomePage = async () => {
             text="These feedbacks will confirm to you that we have led our clients to success."
           />
           <Spacer height="h-[15px] md:h-[30px]" />
+          <div className="grid grid-cols-3 w-full px-[10px] 2xl:px-14">
+            {
+              knoledgeCenter.map((item: { title: string; feturedText: string; slug: { current: string; }; mainImage: { asset: SanityImageSource; }; }, index: Key | null | undefined) => (
+                <div className="flex col-auto" key={index}>
+                  <BlogCard title={item.title} description={item.feturedText} link={item.slug.current} image={`${urlFor(item.mainImage.asset)}`} />
+                </div>
+              ))
+            }
+          </div>
         </div>
       </section>
     </>
