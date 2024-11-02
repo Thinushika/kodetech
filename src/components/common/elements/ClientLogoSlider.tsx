@@ -1,20 +1,13 @@
 "use client";
 
 import React from "react";
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper/modules";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "swiper/css/navigation";
+
+import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 
 interface SliderData {
@@ -28,39 +21,31 @@ const ClientLogoSlider = ({
   clientLogoSliderData: SliderData[];
 }) => {
   return (
-    <div className="flex justify-center items-center lg:w-4/5 ">
+    <div className="hidden lg:flex justify-center items-center lg:w-4/5 clientLogoSlider">
       <Swiper
-        id="clientLogoSlider"
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-        autoplay={false}
-        loop
+        slidesPerView={5}
+        spaceBetween={0}
         pagination={false}
-        navigation
-        centeredSlides={false}
-        spaceBetween={0} 
+        navigation={true}
         breakpoints={{
-          0: {
-            slidesPerView: 1, // Mobile
-          },
           640: {
-            slidesPerView: 3, // Small tablets
+            slidesPerView: 1,
           },
           768: {
-            slidesPerView: 5, // Tablets
+            slidesPerView: 3,
           },
           1024: {
-            slidesPerView: 6, // Desktop
+            slidesPerView: 5,
           },
         }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
-        className="px-[20px]"
+        modules={[ Pagination, Navigation]}
+        className="mySwiper"
       >
         {clientLogoSliderData.map((data, index) => (
           <SwiperSlide key={index}>
             <div className="flex justify-center items-center my-[30px] p-[10px]">
               <div className="flex w-full rounded-[10px] p-[10px] lg:p-[20px] justify-center items-center h-[140px] shadow-lg">
-              <Image
+                <Image
                   src={data.img}
                   alt={data.name}
                   layout="responsive"
@@ -78,5 +63,3 @@ const ClientLogoSlider = ({
 };
 
 export default ClientLogoSlider;
-
-

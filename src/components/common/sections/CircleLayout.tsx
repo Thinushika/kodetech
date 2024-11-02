@@ -57,27 +57,33 @@ const icons = [
 const CircleLayout = () => {
   const [radius, setRadius] = useState(125);
 
-  const calculateRadius = (width: number) => {
-    if (width >= 1536) return 370; // 2xl
-    if (width >= 1280) return 280; // xl
-    if (width >= 1024) return 240; // lg
-    if (width >= 768) return 180; // md
-    return 125; // mobile default
-  };
-
   useEffect(() => {
     const handleResize = () => {
-      setRadius(calculateRadius(window.innerWidth));
+      let newRadius = 125; 
+      const width = window.innerWidth;
+
+      if (width >= 1536) {
+        newRadius = 125; // 2xl
+      } else if (width >= 1280) {
+        newRadius = 280; // xl
+      } else if (width >= 1024) {
+        newRadius = 240; // lg
+      } else if (width >= 768) {
+        newRadius = 180; // md
+      }
+
+      setRadius(newRadius);
     };
 
-    handleResize(); // Initial call
+    handleResize();
+
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="relative flex justify-center items-center h-[360px] w-full sm:h-[340px] sm:w-[340px] md:h-[500px] md:w-[450px] lg:h-[700px] lg:w-[700px] xl:h-[850px] xl:w-[850px] 2xl:h-[1000px] 2xl:w-[1000px] mx-auto">
+    <div className="relative hidden lg:flex justify-center items-center h-[360px] w-full sm:h-[340px] sm:w-[340px] md:h-[500px] md:w-[450px] lg:h-[700px] lg:w-[700px] xl:h-[850px] xl:w-[850px] 2xl:h-[1000px] 2xl:w-[1000px] mx-auto">
       <div className="absolute w-[100px] h-[100px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] lg:w-[180px] lg:h-[180px] xl:w-[200px] xl:h-[200px] 2xl:w-[250px] 2xl:h-[250px] rounded-full bg-[#EDEDED] shadow-lg flex justify-center items-center text-black text-center font-semibold z-30">
         Our <br /> Capabilities
       </div>
@@ -91,8 +97,6 @@ const CircleLayout = () => {
         const x = radius * Math.cos(angle);
         const y = radius * Math.sin(angle);
 
-        console.log("radius :", radius)
-
         return (
           <div
             key={index}
@@ -103,7 +107,9 @@ const CircleLayout = () => {
             }}
           >
             <Link href={icon.link}>
-              <div className="w-[90px] sm:w-[90px] md:w-[120px] lg:w-[140px] xl:w-[160px] 2xl:w-[200px] hover:scale-110 transition-all duration-300 ease-in-out transform h-[80px] sm:h-[100px] md:h-[120px] lg:h-[150px] xl:h-[180px] 2xl:h-[200px] rounded-full flex justify-center items-center">
+              <div
+                className="w-[90px] sm:w-[90px] md:w-[120px] lg:w-[140px] xl:w-[160px] 2xl:w-[200px] hover:scale-110 transition-all duration-300 ease-in-out transform h-[80px] sm:h-[100px] md:h-[120px] lg:h-[150px] xl:h-[180px] 2xl:h-[200px] rounded-full flex justify-center items-center"
+              >
                 <Image
                   src={"/img/circle.png"}
                   alt="Circle"
