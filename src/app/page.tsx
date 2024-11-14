@@ -203,9 +203,7 @@ const HomePage = async () => {
                               className="rounded-lg object-cover w-full h-full"
                             />
                           </div>
-                          <div
-                            className="flex flex-col p-[20px] space-y-1 w-full md:w-[60%]"
-                          >
+                          <div className="flex flex-col p-[20px] space-y-1 w-full md:w-[60%]">
                             <Heading3 color="#000" text={mainProduct.title} />
                             <Spacer height="h-[2px]" />
                             <ParagraphSecondaryStyle
@@ -250,9 +248,7 @@ const HomePage = async () => {
                           className="rounded-lg object-cover w-full h-full"
                         />
                       </div>
-                      <div
-                        className="flex flex-col col-span-3 p-[20px] space-y-1  w-full md:w-[60%]"
-                      >
+                      <div className="flex flex-col col-span-3 p-[20px] space-y-1  w-full md:w-[60%]">
                         <Heading3 color="#000" text={product.title} />
                         <Spacer height="h-[2px]" />
                         <ParagraphSecondaryStyle
@@ -276,7 +272,7 @@ const HomePage = async () => {
               </div>
             </div>
             <div className="flex w-full justify-center items-center pt-[30px] md:pt-[40px] xl:pt-[50px]">
-            <Button text="See All" href="" withArrow={true} />
+              <Button text="See All" href="" withArrow={true} />
             </div>
           </div>
         </div>
@@ -312,7 +308,7 @@ const HomePage = async () => {
           />
           <Spacer height="h-[15px] md:h-[30px]" />
           <div className="flex justify-center">
-          <ClientLogoSlider clientLogoSliderData={clientLogoSliderData} />
+            <ClientLogoSlider clientLogoSliderData={clientLogoSliderData} />
           </div>
         </div>
       </section>
@@ -346,14 +342,33 @@ const HomePage = async () => {
             text="These feedbacks will confirm to you that we have led our clients to success."
           />
           <Spacer height="h-[15px] md:h-[30px]" />
-          <div className="grid grid-cols-3 w-full px-[10px] 2xl:px-14">
-            {
-              knoledgeCenter.map((item: { title: string; feturedText: string; slug: { current: string; }; mainImage: { asset: SanityImageSource; }; }, index: Key | null | undefined) => (
-                <div className="flex col-auto" key={index}>
-                  <BlogCard title={item.title} description={item.feturedText} link={item.slug.current} image={`${urlFor(item.mainImage.asset)}`} />
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 w-full px-[10px] 2xl:px-14">
+            {knoledgeCenter.map(
+              (
+                item: {
+                  title: string;
+                  feturedText: string;
+                  slug: { current: string };
+                  mainImage: { asset: SanityImageSource };
+                },
+                index: Key | null | undefined
+              ) => (
+                <div
+                  className="flex col-auto py-[10px] lg:py-0 lg:px-[10px]"
+                  key={index}
+                >
+                  <BlogCard
+                    title={item.title}
+                    description={item.feturedText}
+                    link={item.slug.current}
+                    image={`${urlFor(item.mainImage.asset)}`}
+                  />
                 </div>
-              ))
-            }
+              )
+            )}
+          </div>
+          <div className="flex w-full justify-center items-center pt-[30px] md:pt-[40px] xl:pt-[50px]">
+            <Button text="See All" href="" withArrow={true} />
           </div>
         </div>
       </section>
