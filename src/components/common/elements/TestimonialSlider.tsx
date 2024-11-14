@@ -18,6 +18,8 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Image from "next/image";
 import Paragraph from "./Paragraph";
+import { FaRegStar, FaStar } from "react-icons/fa";
+import Spacer from "./Spacer";
 
 interface SliderData {
   name: string;
@@ -34,7 +36,7 @@ const TestimonialSlider = ({
   testimonialSliderData: SliderData[];
 }) => {
   return (
-    <div className="hidden lg:flex">
+    <div className="">
       <Swiper
         id="clientLogoSlider"
         modules={[
@@ -53,12 +55,12 @@ const TestimonialSlider = ({
         centeredSlides
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
-        style={{ padding: "0px 100px !important" }}
+        className="swiperPadding"
       >
         {testimonialSliderData.map((data, index) => (
           <SwiperSlide key={index}>
             <div className="flex justify-center items-center my-[30px] p-[20px] lg:px-[100px]">
-              <div className="flex flex-row bg-[#fff] p-[20px] rounded-[30px]">
+              <div className="flex flex-row bg-[#fff] p-[20px] rounded-[10px] lg:rounded-[30px]">
                 <div className="w-[10%]">
                   <svg
                     width="27"
@@ -83,20 +85,40 @@ const TestimonialSlider = ({
                       <Image
                         src={data.img}
                         alt={data.name}
-                        layout="responsive"
+                        layout="cover"
                         width={100}
                         height={100}
-                        className="w-[120px] h-auto"
+                        className="w-[100px] h-[100px] border-black rounded-full border-2"
                       />
                     </div>
-                    <div className="flex flex-col text-start px-[20px]">
-                      <p className="text-black">{data.name}</p>
-                      <p className="text-black">{data.position}</p>
-                      <p className="text-black">{data.company}</p>
-                      <p className="text-black">{data.rate}</p>
+                    <div className="flex flex-col justify-center items-start text-start px-[20px]">
+                      <p className="text-[#222222] font-semibold text-[18px]">
+                        {data.name}
+                      </p>
+                      <p className="text-[#222222] font-medium text-[14px]">
+                        {data.position} ({data.company})
+                      </p>
+                      <div className="text-yellow-500 flex items-center">
+                        {[...Array(5)].map((_, index) =>
+                          index < data.rate ? (
+                            <FaStar
+                              key={index}
+                              fontSize={22}
+                              className="text-yellow-500 pe-1"
+                            />
+                          ) : (
+                            <FaRegStar
+                              key={index}
+                              fontSize={22}
+                              className="text-yellow-500  pe-1"
+                            />
+                          )
+                        )}
+                      </div>
                     </div>
                   </div>
-                  <div className="flex text-start">
+                  <div className="flex text-start flex-col">
+                    <Spacer height="h-[15px] md:h-[15px]" />
                     <Paragraph color="#000" text={data.comment} />
                   </div>
                 </div>
