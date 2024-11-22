@@ -1,6 +1,6 @@
 import React from "react";
 import sanity, { urlFor } from "sanity";
-import ClientLogoSlider from "src/components/common/elements/ClientLogoSlider";
+import ClientLogoSliderAll from "src/components/common/elements/ClientLogoSliderAll";
 import Heading1 from "src/components/common/elements/Heading1";
 import Paragraph from "src/components/common/elements/Paragraph";
 import Spacer from "src/components/common/elements/Spacer";
@@ -56,8 +56,8 @@ const AboutPage = async () => {
             text="Thousands of leading brands from all over the world trust our solutions and choose us as a partner."
           />
           <Spacer height="h-[15px] md:h-[30px]" />
-          <div className="flex justify-center">
-            <ClientLogoSlider clientLogoSliderData={clientLogoSliderData} />
+          <div className="flex justify-center w-full px-0 md:px-[50px] xl:px-[120px]">
+            <ClientLogoSliderAll clientLogoSliderData={clientLogoSliderData} />
           </div>
         </div>
       </section>

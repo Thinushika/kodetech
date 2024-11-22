@@ -38,7 +38,7 @@ const ClientLogoSlider = ({
             slidesPerView: 5,
           },
         }}
-        modules={[ Pagination, Navigation]}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
       >
         {clientLogoSliderData.map((data, index) => (
@@ -49,9 +49,10 @@ const ClientLogoSlider = ({
                   src={data.img}
                   alt={data.name}
                   layout="responsive"
+                  objectFit="cover"
                   width={100}
                   height={100}
-                  className="w-full h-auto object-contain"
+                  className="h-[80px] w-auto"
                 />
               </div>
             </div>
