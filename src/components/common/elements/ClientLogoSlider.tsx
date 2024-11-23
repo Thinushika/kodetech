@@ -21,15 +21,15 @@ const ClientLogoSlider = ({
   clientLogoSliderData: SliderData[];
 }) => {
   return (
-    <div className="hidden lg:flex justify-center items-center lg:w-4/5 clientLogoSlider">
+    <div className="flex justify-center items-center lg:w-4/5 clientLogoSlider">
       <Swiper
-        slidesPerView={5}
-        spaceBetween={0}
+        slidesPerView={1}
+        spaceBetween={15}
         pagination={false}
         navigation={true}
         breakpoints={{
           640: {
-            slidesPerView: 1,
+            slidesPerView: 2,
           },
           768: {
             slidesPerView: 3,
@@ -43,16 +43,16 @@ const ClientLogoSlider = ({
       >
         {clientLogoSliderData.map((data, index) => (
           <SwiperSlide key={index}>
-            <div className="flex justify-center items-center my-[30px] p-[10px]">
-              <div className="flex w-full rounded-[10px] p-[10px] lg:p-[20px] justify-center items-center h-[140px] shadow-lg">
+            <div className="flex justify-center items-center my-[20px]">
+              <div className="flex w-full max-w-[200px] bg-white rounded-[10px] p-[10px] md:p-[15px] lg:p-[20px] justify-center items-center h-[120px] md:h-[140px] lg:h-[160px] shadow-lg">
                 <Image
                   src={data.img}
                   alt={data.name}
-                  layout="responsive"
-                  objectFit="cover"
+                  layout="intrinsic"
+                  objectFit="contain"
                   width={100}
                   height={100}
-                  className="h-[80px] w-auto"
+                  className="h-auto w-auto"
                 />
               </div>
             </div>
