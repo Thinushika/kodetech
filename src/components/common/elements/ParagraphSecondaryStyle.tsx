@@ -3,7 +3,7 @@ import React from "react";
 type ParagraphProps = {
   text: string;
   color: string;
-  lineClamp?: boolean; 
+  lineClamp?: boolean;
   lineClampNumber?: number;
 };
 
@@ -14,7 +14,7 @@ const ParagraphSecondaryStyle: React.FC<ParagraphProps> = ({
   lineClampNumber = 2,
 }) => {
   const getLineClampClass = () => {
-    if (!lineClamp) return ""; 
+    if (!lineClamp) return "";
 
     switch (lineClampNumber) {
       case 3:
@@ -23,8 +23,10 @@ const ParagraphSecondaryStyle: React.FC<ParagraphProps> = ({
         return "line-clamp-4";
       case 5:
         return "line-clamp-5";
+      case 6:
+        return "line-clamp-6";
       default:
-        return "line-clamp-2"; 
+        return "line-clamp-2";
     }
   };
 

@@ -17,9 +17,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Image from "next/image";
-import Paragraph from "./Paragraph";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Spacer from "./Spacer";
+import ParagraphSecondaryStyle from "./ParagraphSecondaryStyle";
 
 interface SliderData {
   name: string;
@@ -61,8 +61,8 @@ const TestimonialSlider = ({
         {testimonialSliderData.map((data, index) => (
           <SwiperSlide key={index}>
             <div className="flex justify-center items-center my-[30px] p-[20px] lg:px-[100px]">
-              <div className="flex flex-row w-full bg-[#fff] p-[20px] rounded-[10px] lg:rounded-[30px]">
-                <div className="w-[10%]">
+              <div className="flex flex-row relative w-full bg-[#fff] p-[20px] rounded-[10px] lg:rounded-[30px]">
+                <div className="w-[10%] absolute top-4 left-4 sm:relative">
                   <svg
                     width="27"
                     height="25"
@@ -82,7 +82,7 @@ const TestimonialSlider = ({
                 </div>
                 <div className="flex flex-col">
                   <div className="flex flex-col md:flex-row">
-                    <div className="flex w-[120px] justify-center items-center">
+                    <div className="flex w-full md:w-[120px] justify-center items-center">
                       <Image
                         src={data.img}
                         alt={data.name}
@@ -120,10 +120,15 @@ const TestimonialSlider = ({
                   </div>
                   <div className="flex text-center md:text-start flex-col">
                     <Spacer height="h-[15px] md:h-[15px]" />
-                    <Paragraph color="#000" text={data.comment} />
+                    <ParagraphSecondaryStyle
+                      lineClamp={true}
+                      lineClampNumber={6}
+                      color="#000"
+                      text={data.comment}
+                    />
                   </div>
                 </div>
-                <div className="w-[10%]">
+                <div className="w-[10%] absolute top-4 right-4 sm:relative">
                   <svg
                     width="27"
                     height="25"

@@ -194,3 +194,22 @@ button {
 .clientLogoSlider .swiper-button-next::after {
   font-size: 14px !important;
 }
+
+/* scrollbar styles */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(255, 230, 230);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #eb131b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ac0c11;
+}
