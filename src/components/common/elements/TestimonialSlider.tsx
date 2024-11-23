@@ -47,11 +47,12 @@ const TestimonialSlider = ({
           Autoplay,
           EffectFade,
         ]}
-        autoplay
+        autoplay={false}
         loop
         pagination={{ clickable: true }}
         navigation={false}
         slidesPerView={1}
+        spaceBetween={0}
         centeredSlides
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
@@ -60,7 +61,7 @@ const TestimonialSlider = ({
         {testimonialSliderData.map((data, index) => (
           <SwiperSlide key={index}>
             <div className="flex justify-center items-center my-[30px] p-[20px] lg:px-[100px]">
-              <div className="flex flex-row bg-[#fff] p-[20px] rounded-[10px] lg:rounded-[30px]">
+              <div className="flex flex-row w-full bg-[#fff] p-[20px] rounded-[10px] lg:rounded-[30px]">
                 <div className="w-[10%]">
                   <svg
                     width="27"
@@ -80,8 +81,8 @@ const TestimonialSlider = ({
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <div className="flex flex-row">
-                    <div className="flex w-[120px]">
+                  <div className="flex flex-col md:flex-row">
+                    <div className="flex w-[120px] justify-center items-center">
                       <Image
                         src={data.img}
                         alt={data.name}
@@ -91,7 +92,7 @@ const TestimonialSlider = ({
                         className="w-[100px] h-[100px] border-black rounded-full border-2"
                       />
                     </div>
-                    <div className="flex flex-col justify-center items-start text-start px-[20px]">
+                    <div className="flex flex-col justify-center items-center md:items-start text-center md:text-start px-0 md:px-[20px]">
                       <p className="text-[#222222] font-semibold text-[18px]">
                         {data.name}
                       </p>
@@ -117,7 +118,7 @@ const TestimonialSlider = ({
                       </div>
                     </div>
                   </div>
-                  <div className="flex text-start flex-col">
+                  <div className="flex text-center md:text-start flex-col">
                     <Spacer height="h-[15px] md:h-[15px]" />
                     <Paragraph color="#000" text={data.comment} />
                   </div>
