@@ -1,6 +1,7 @@
 import React from "react";
 import sanity, { urlFor } from "sanity";
 import ClientLogoSliderAll from "src/components/common/elements/ClientLogoSliderAll";
+import FooterUpBlock from "src/components/common/elements/FooterUpBlock";
 import Heading1 from "src/components/common/elements/Heading1";
 import Paragraph from "src/components/common/elements/Paragraph";
 import Spacer from "src/components/common/elements/Spacer";
@@ -79,6 +80,7 @@ const AboutPage = async () => {
           <TestimonialSlider testimonialSliderData={testimonialSliderData} />
         </div>
       </section>
+      <FooterUpBlock />
     </div>
   );
 };
