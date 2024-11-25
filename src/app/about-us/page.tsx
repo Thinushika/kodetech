@@ -47,6 +47,47 @@ const AboutPage = async () => {
         buttonLabel="Contact Us"
         buttonLink="/contact"
       />
+      {/* project count */}
+      <section className="bg-cover bg-center md:flex items-end justify-center bg-white">
+        <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px]  px-[10px] 2xl:px-14 w-full h-full ">
+          <div className="flex justify-center w-full px-0 md:px-[50px] xl:px-[120px]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-black w-full justify-center items-center">
+              <div className="col flex flex-col justify-center items-center bg-[#FFF6F6] rounded-lg shadow h-[150px] lg:h-[200px]">
+                <h2 className="text-black text-[30px] lg:text-[50px] font-bold mb-0">
+                  250
+                </h2>
+                <p className="text-black text-[14px] lg:text-[18px] font-medium mb-0">
+                  Successful Project
+                </p>
+              </div>
+              <div className="col flex flex-col justify-center items-center bg-[#FFF6F6] rounded-lg shadow h-[150px] lg:h-[200px]">
+                <h2 className="text-black text-[30px] lg:text-[50px] font-bold mb-0">
+                  250
+                </h2>
+                <p className="text-black text-[14px] lg:text-[18px] font-medium mb-0">
+                  Number Of Clients
+                </p>
+              </div>
+              <div className="col flex flex-col justify-center items-center bg-[#FFF6F6] rounded-lg shadow h-[150px] lg:h-[200px]">
+                <h2 className="text-black text-[30px] lg:text-[50px] font-bold mb-0">
+                  250
+                </h2>
+                <p className="text-black text-[14px] lg:text-[18px] font-medium mb-0">
+                  Number Of Sectors
+                </p>
+              </div>
+              <div className="col flex flex-col justify-center items-center bg-[#FFF6F6] rounded-lg shadow h-[150px] lg:h-[200px]">
+                <h2 className="text-black text-[30px] lg:text-[50px] font-bold mb-0">
+                  10
+                </h2>
+                <p className="text-black text-[14px] lg:text-[18px] font-medium mb-0">
+                  Countries
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* clients */}
       <section className="bg-cover bg-center md:flex items-end justify-center bg-white">
         <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px]  px-[10px] 2xl:px-14 w-full h-full ">
