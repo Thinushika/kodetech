@@ -74,7 +74,7 @@ const AboutPage = async () => {
               className="w-3/4 h-auto"
             />
           </div>
-          <div className="w-full lg:w-1/2 flex flex-col justify-center">
+          <div className="w-full lg:w-1/2 flex flex-col justify-start">
             <Spacer height="h-[20px] md:h-[0px]" />
             <SubTitle text={"ABOUT US"} />
             <Spacer height="h-[15px] md:h-[15px] lg:h-[25px] xl:h-[35px]" />
