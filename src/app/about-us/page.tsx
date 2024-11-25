@@ -6,6 +6,7 @@ import FooterUpBlock from "src/components/common/elements/FooterUpBlock";
 import Heading1 from "src/components/common/elements/Heading1";
 import Paragraph from "src/components/common/elements/Paragraph";
 import Spacer from "src/components/common/elements/Spacer";
+import SubTitle from "src/components/common/elements/SubTitle";
 import TestimonialSlider from "src/components/common/elements/TestimonialSlider";
 import HeroSection from "src/components/common/sections/HeroSection";
 import { getClientLogos } from "src/services/fetchClientLogos";
@@ -60,6 +61,50 @@ const AboutPage = async () => {
         buttonLabel="Contact Us"
         buttonLink="/contact"
       />
+      {/* section 2 - who we are */}
+      <div className="p-0 m-0 bg-[#C5C5C54D]">
+        <div className="flex flex-col md:flex-row max-w-screen-2xl mx-auto px-[15px] py-[40px] xl:p-14 lg:gap-[40px]">
+          <div className="w-full lg:w-1/2 flex justify-center items-center">
+            <Image
+              src={"/img/aboutImage.png"}
+              alt="who we are"
+              layout="responsive"
+              width={100}
+              height={100}
+              className="w-3/4 h-auto"
+            />
+          </div>
+          <div className="w-full lg:w-1/2 flex flex-col justify-center">
+            <Spacer height="h-[20px] md:h-[0px]" />
+            <SubTitle text={"ABOUT US"} />
+            <Spacer height="h-[15px] md:h-[15px] lg:h-[25px] xl:h-[35px]" />
+            <h3
+              className={`text-black text-[24px] md:text-[30px] lg:text-[50px] font-semibold leading-tight p-0 m-0`}
+            >
+              <span className="text-[#EB131B]">Fuelling Global Presence</span>{" "}
+              and Growth through Innovative Tech Solutions.
+            </h3>
+            <Spacer height="h-[15px] md:h-[15px] lg:h-[25px]" />
+            <Paragraph
+              color="#4D5053"
+              text={`Fostering worldwide presence with IT solutions in Sri Lanka, Qatar, Malaysia, and Australia. Offering bespoke software development to immersive AR/VR experiences.we are your dedicated partner, fostering innovation and success in today’s dynamic business landscape. `}
+            />
+            <Spacer height="h-[15px]" />{" "}
+            <Paragraph
+              color="#4D5053"
+              text={`
+                   Experience unparalleled expertise and innovation, unlocking 
+the path  to success. Choose us as your gateway to success, where expertise, innovation, and unwavering commitment converge for unparalleled solutions.`}
+            />
+            <Spacer height="h-[15px]" />
+            <Paragraph
+              color="#4D5053"
+              text={`
+At Kode Tech, we simplify development. Understanding your needs, clear planning, and commitment to quality ensure a smooth, successful process, bringing your vision to life effortlessly. `}
+            />
+          </div>
+        </div>
+      </div>
       {/* project count */}
       <section className="bg-cover bg-center md:flex items-end justify-center bg-white">
         <div className="text-white text-center max-w-screen-2xl mx-auto py-[40px]  px-[10px] 2xl:px-14 w-full h-full ">
