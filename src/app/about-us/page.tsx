@@ -43,7 +43,7 @@ const AboutPage = async () => {
     description: item.description,
     img: urlFor(item.icon).url(),
   }));
-  console.log("coreValues : ", coreValuesArray);
+  // console.log("coreValues : ", coreValuesArray);
   const numberOfClients = Array.isArray(clientLogos) ? clientLogos.length : 0;
 
   // console.log(`Number of items: ${numberOfClients}`);

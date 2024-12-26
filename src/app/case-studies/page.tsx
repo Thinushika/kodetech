@@ -1,13 +1,16 @@
 import React from "react";
+import sanity from "sanity";
 import FooterUpBlock from "src/components/common/elements/FooterUpBlock";
 import Heading1 from "src/components/common/elements/Heading1";
 import Paragraph from "src/components/common/elements/Paragraph";
 import Spacer from "src/components/common/elements/Spacer";
 import HeroSection from "src/components/common/sections/HeroSection";
+import { getCaseStudies } from "src/services/fetchCaseStudies";
+import { CaseStudyType } from "src/types";
 
 const ProductsPage = async () => {
-  // const generalInfo: GeneralInfoType = await sanity.fetch(getGeneralInfo);
-  // console.log("General Info : ", generalInfo)
+  const caseStudies: CaseStudyType = await sanity.fetch(getCaseStudies);
+  console.log("caseStudies Info : ", caseStudies)
 
   return (
     <div>

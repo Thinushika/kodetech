@@ -108,3 +108,47 @@ export interface CoreValuesType {
   description: string;
   icon: SanityImageSource;
 }
+
+
+export interface CaseStudyType {
+  [x: string]: any;
+  caseName: string;
+  projectUrl: string;
+  slug: string;
+  clientLogo: {
+    _type: "image";
+    asset: {
+      _ref: string;
+      _type: "reference";
+    };
+  };
+  mainImage: SanityImageSource;
+  tabImage: SanityImageSource;
+  tagline: string;
+  feturedText: string;
+  body: string;
+}
+
+
+export interface TechStack {
+  name: string;
+  icon: string;
+  link: string;
+}
+
+export interface ServiceType {
+  [x: string]: any;
+  serviceName: string;
+  slug: string;
+  featuredImage: {
+    _type: "image";
+    asset: {
+      _ref: string;
+      _type: "reference";
+    };
+  };
+  mainImage: SanityImageSource;
+  feturedText: string;
+  techStack: TechStack[];
+  body: string;
+}
