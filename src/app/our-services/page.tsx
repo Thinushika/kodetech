@@ -51,13 +51,13 @@ const ProductsPage = async () => {
                          layout="responsive"
                          width={100}
                          height={100}
-                         className="rounded-s-lg"
+                         className="rounded-lg lg:rounded-s-lg"
                        />
                      ) : (
                        <p>No image available for {service.serviceName || `Service ${index + 1}`}</p>
                      )}
                    </div>
-                   <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-start ps-0 lg:ps-[50px]">
+                   <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-start p-[10px] lg:p-[20px] lg:ps-[50px]">
                      <Heading3 color="#000" text={service.serviceName} />
                      <Spacer height="h-[15px] md:h-[15px]" />
                      <Paragraph color="#000" text={service.feturedText} />
@@ -86,8 +86,8 @@ const ProductsPage = async () => {
                  </>
                 ) : (
                  
-                  <>
-                  <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-start ps-0 lg:ps-[50px]">
+                  <div className="flex flex-col-reverse flg:flex-row">
+                  <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-start  p-[10px] lg:p-[20px lg:ps-[50px]">
                     <Heading3 color="#000" text={service.serviceName} />
                     <Spacer height="h-[15px] md:h-[15px]" />
                     <Paragraph color="#000" text={service.feturedText} />
@@ -121,13 +121,13 @@ const ProductsPage = async () => {
                         layout="responsive"
                         width={100}
                         height={100}
-                        className="rounded-e-lg"
+                        className="rounded-lg lg:rounded-e-lg"
                       />
                     ) : (
                       <p>No image available for {service.serviceName || `Service ${index + 1}`}</p>
                     )}
                   </div>
-                </>
+                </div>
                 )}
               </div>
             ))}
