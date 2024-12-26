@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import sanity, { urlFor } from "sanity";
 import FooterUpBlock from "src/components/common/elements/FooterUpBlock";
@@ -42,92 +43,96 @@ const ProductsPage = async () => {
             {ourService.map((service: any, index: number) => (
               <div key={index} className="flex flex-col lg:flex-row shadow p-0 rounded-lg mb-[25px]">
                 {index % 2 === 0 ? (
-                   <>
-                   <div className="w-full lg:w-1/2 flex justify-center items-center">
-                     {service.featuredImage ? (
-                       <Image
-                         src={urlFor(service.featuredImage).url()}
-                         alt={service.serviceName || `Service Image ${index + 1}`}
-                         layout="responsive"
-                         width={100}
-                         height={100}
-                         className="rounded-lg lg:rounded-s-lg"
-                       />
-                     ) : (
-                       <p>No image available for {service.serviceName || `Service ${index + 1}`}</p>
-                     )}
-                   </div>
-                   <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-start p-[10px] lg:p-[20px] lg:ps-[50px]">
-                     <Heading3 color="#000" text={service.serviceName} />
-                     <Spacer height="h-[15px] md:h-[15px]" />
-                     <Paragraph color="#000" text={service.feturedText} />
-                     <Spacer height="h-[20px] md:h-[30px]" />
-                     <Heading3 color="#EB131B" text="Our Tech Stack" />
-                     <Spacer height="h-[15px] md:h-[15px]" />
-                     <div className="flex flex-wrap">
-                       {service.techStack.map((tech: any, techIndex: number) => (
-                         <div key={techIndex} className="flex items-center justify-center p-2 shadow rounded me-5 mb-2">
-                           {tech.icon ? (
-                             <Image
-                               src={urlFor(tech.icon).url()}
-                               alt={tech.name || `Tech Icon ${techIndex + 1}`}
-                               layout="fixed"
-                               width={70}
-                               height={70}
-                               className="rounded h-[30px] w-auto"
-                             />
-                           ) : (
-                             <p>{tech.name || "No Icon"}</p>
-                           )}
-                         </div>
-                       ))}
-                     </div>
-                   </div>
-                 </>
+                  <>
+                    <div className="w-full lg:w-1/2 flex justify-center items-center">
+                      {service.featuredImage ? (
+                        <Image
+                          src={urlFor(service.featuredImage).url()}
+                          alt={service.serviceName || `Service Image ${index + 1}`}
+                          layout="responsive"
+                          width={100}
+                          height={100}
+                          className="rounded-lg lg:rounded-s-lg"
+                        />
+                      ) : (
+                        <p>No image available for {service.serviceName || `Service ${index + 1}`}</p>
+                      )}
+                    </div>
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-start p-[10px] lg:p-[20px] lg:ps-[50px]">
+                      <Link href={`${service.slug.current}`}>
+                        <Heading3 color="#000" text={service.serviceName} />
+                      </Link>
+                      <Spacer height="h-[15px] md:h-[15px]" />
+                      <Paragraph color="#000" text={service.feturedText} />
+                      <Spacer height="h-[20px] md:h-[30px]" />
+                      <Heading3 color="#EB131B" text="Our Tech Stack" />
+                      <Spacer height="h-[15px] md:h-[15px]" />
+                      <div className="flex flex-wrap">
+                        {service.techStack.map((tech: any, techIndex: number) => (
+                          <div key={techIndex} className="flex items-center justify-center p-2 shadow rounded me-5 mb-2">
+                            {tech.icon ? (
+                              <Image
+                                src={urlFor(tech.icon).url()}
+                                alt={tech.name || `Tech Icon ${techIndex + 1}`}
+                                layout="fixed"
+                                width={70}
+                                height={70}
+                                className="rounded h-[30px] w-auto"
+                              />
+                            ) : (
+                              <p>{tech.name || "No Icon"}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
                 ) : (
-                 
+
                   <div className="flex flex-col-reverse flg:flex-row">
-                  <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-start  p-[10px] lg:p-[20px lg:ps-[50px]">
-                    <Heading3 color="#000" text={service.serviceName} />
-                    <Spacer height="h-[15px] md:h-[15px]" />
-                    <Paragraph color="#000" text={service.feturedText} />
-                    <Spacer height="h-[20px] md:h-[30px]" />
-                    <Heading3 color="#EB131B" text="Our Tech Stack" />
-                    <Spacer height="h-[15px] md:h-[15px]" />
-                    <div className="flex flex-wrap">
-                      {service.techStack.map((tech: any, techIndex: number) => (
-                        <div key={techIndex} className="flex items-center justify-center p-2 shadow rounded me-5">
-                          {tech.icon ? (
-                            <Image
-                              src={urlFor(tech.icon).url()}
-                              alt={tech.name || `Tech Icon ${techIndex + 1}`}
-                              layout="fixed"
-                              width={70}
-                              height={70}
-                              className="rounded h-[30px] w-auto"
-                            />
-                          ) : (
-                            <p>{tech.name || "No Icon"}</p>
-                          )}
-                        </div>
-                      ))}
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center items-start text-start  p-[10px] lg:p-[20px lg:ps-[50px]">
+                      <Link href={`${service.slug.current}`}>
+                        <Heading3 color="#000" text={service.serviceName} />
+                      </Link>
+                      <Spacer height="h-[15px] md:h-[15px]" />
+                      <Paragraph color="#000" text={service.feturedText} />
+                      <Spacer height="h-[20px] md:h-[30px]" />
+                      <Heading3 color="#EB131B" text="Our Tech Stack" />
+                      <Spacer height="h-[15px] md:h-[15px]" />
+                      <div className="flex flex-wrap">
+                        {service.techStack.map((tech: any, techIndex: number) => (
+                          <div key={techIndex} className="flex items-center justify-center p-2 shadow rounded me-5">
+                            {tech.icon ? (
+                              <Image
+                                src={urlFor(tech.icon).url()}
+                                alt={tech.name || `Tech Icon ${techIndex + 1}`}
+                                layout="fixed"
+                                width={70}
+                                height={70}
+                                className="rounded h-[30px] w-auto"
+                              />
+                            ) : (
+                              <p>{tech.name || "No Icon"}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="w-full lg:w-1/2 flex justify-center items-center">
+                      {service.featuredImage ? (
+                        <Image
+                          src={urlFor(service.featuredImage).url()}
+                          alt={service.serviceName || `Service Image ${index + 1}`}
+                          layout="responsive"
+                          width={100}
+                          height={100}
+                          className="rounded-lg lg:rounded-e-lg"
+                        />
+                      ) : (
+                        <p>No image available for {service.serviceName || `Service ${index + 1}`}</p>
+                      )}
                     </div>
                   </div>
-                  <div className="w-full lg:w-1/2 flex justify-center items-center">
-                    {service.featuredImage ? (
-                      <Image
-                        src={urlFor(service.featuredImage).url()}
-                        alt={service.serviceName || `Service Image ${index + 1}`}
-                        layout="responsive"
-                        width={100}
-                        height={100}
-                        className="rounded-lg lg:rounded-e-lg"
-                      />
-                    ) : (
-                      <p>No image available for {service.serviceName || `Service ${index + 1}`}</p>
-                    )}
-                  </div>
-                </div>
                 )}
               </div>
             ))}
